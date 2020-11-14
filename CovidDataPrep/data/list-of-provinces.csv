@@ -1,0 +1,11 @@
+codice_regione,denominazione_regione,codice_provincia,denominazione_provincia,sigla_provincia,lat,long
+1,Piemonte,1,Torino,TO,45.0732745,7.680687483
+1,Piemonte,2,Vercelli,VC,45.32398135,8.423234312
+1,Piemonte,3,Novara,NO,45.44588506,8.621915884
+1,Piemonte,4,Cuneo,CN,44.39329625,7.551171632000001
+1,Piemonte,5,Asti,AT,44.89912921,8.204142547
+1,Piemonte,6,Alessandria,AL,44.91297351,8.615401155
+1,Piemonte,96,Biella,BI,45.5665112,8.054082167
+1,Piemonte,103,Verbano-Cusio-Ossola,VB,45.9214455,8.551078752999999
+1,Piemonte,891,Fuori Regione / Provincia Autonoma,,,
+1,Piemonte,991,In fase di definizione/aggiornamento,,,
