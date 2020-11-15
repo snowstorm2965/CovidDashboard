@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.io as pio
+from plotly.subplots import make_subplots
 
 import requests
 
@@ -38,20 +39,20 @@ def generate_json_plots(data_type="provincial"):
                         idx = df['codice_provincia'] == row['codice_provincia']
                         data_toplot = df.loc[idx, ['data','totale_casi']]
                         data_toplot['variazione_totale_casi'] = np.concatenate((np.array([0]), np.diff(data_toplot['totale_casi'])))
-                        fig = go.Figure()
-                        fig.add_trace(go.Scatter(
+                        fig = make_subplots(rows=2, cols=1, shared_xaxes=True)
+                        fig.append_trace(go.Scatter(
                             x=data_toplot['data'],
                             y=data_toplot['totale_casi'],
                             line=dict(color="red"),
                             name="Total positive cases"
-                            ))
-                        fig.add_trace(go.Scatter(
+                            ), row=1, col=1)
+                        fig.append_trace(go.Scatter(
                             x=data_toplot['data'],
                             y=data_toplot['variazione_totale_casi'],
                             line=dict(color="magenta"),
                             name="Variation"
-                            ))
-                        fig.update_layout(title="Data for %s (%s)"%(row['denominazione_provincia'],row['sigla_provincia']))
+                            ), row=2, col=1)
+                        fig.update_layout(title="Data for province %s (%s)"%(row['denominazione_provincia'],row['sigla_provincia']))
                         with open("./CovidDataPrep/data/json_plots/province_%s.json"%row['sigla_provincia'], "w") as out_file:
                             out_file.write('%s' % pio.to_json(fig,pretty=True))
         except Exception as ex:
