@@ -8,16 +8,17 @@
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>runserver.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>CovidDataPrep</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Web launcher</LaunchProvider>
-    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <WebBrowserUrl>http://localhost:5555</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>CovidDashboard</Name>
     <RootNamespace>CovidDashboard</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +36,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CovidDataPrep\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CovidDataPrep\test2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CovidDataPrep\__init__.py">
@@ -57,8 +61,136 @@
     <Folder Include="CovidDataPrep\data\pcm-dpc\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CovidDashboard\static\content\all.css" />
+    <Content Include="CovidDashboard\static\fonts\fa-brands-400.eot" />
+    <Content Include="CovidDashboard\static\fonts\fa-brands-400.svg" />
+    <Content Include="CovidDashboard\static\fonts\fa-brands-400.ttf" />
+    <Content Include="CovidDashboard\static\fonts\fa-brands-400.woff" />
+    <Content Include="CovidDashboard\static\fonts\fa-brands-400.woff2" />
+    <Content Include="CovidDashboard\static\fonts\fa-regular-400.eot" />
+    <Content Include="CovidDashboard\static\fonts\fa-regular-400.svg" />
+    <Content Include="CovidDashboard\static\fonts\fa-regular-400.ttf" />
+    <Content Include="CovidDashboard\static\fonts\fa-regular-400.woff" />
+    <Content Include="CovidDashboard\static\fonts\fa-regular-400.woff2" />
+    <Content Include="CovidDashboard\static\fonts\fa-solid-900.eot" />
+    <Content Include="CovidDashboard\static\fonts\fa-solid-900.svg" />
+    <Content Include="CovidDashboard\static\fonts\fa-solid-900.ttf" />
+    <Content Include="CovidDashboard\static\fonts\fa-solid-900.woff" />
+    <Content Include="CovidDashboard\static\fonts\fa-solid-900.woff2" />
+    <Content Include="CovidDashboard\static\scripts\all.js" />
     <Content Include="CovidDashboard\static\scripts\plot.js" />
     <Content Include="CovidDashboard\static\scripts\plotly-latest.min.js" />
+    <Content Include="CovidDashboard\templates\about.html" />
+    <Content Include="CovidDashboard\templates\contact.html" />
+    <Content Include="CovidDashboard\templates\test.html" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AG.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AL.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AP.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AQ.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_AV.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BG.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BL.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_BZ.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CB.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CH.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CL.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_CZ.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_EN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FG.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FM.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_FR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_GE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_GO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_GR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_IM.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_IS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_KR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_LU.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MB.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_ME.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_MT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_nan.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_NO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_NU.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_OR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PD.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PG.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PU.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PV.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_PZ.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RG.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RM.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_RO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SP.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SU.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_SV.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TN.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TO.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TP.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TS.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_TV.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_UD.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VA.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VB.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VC.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VE.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VI.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VR.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VT.json" />
+    <Content Include="CovidDataPrep\data\json_plots\province_VV.json" />
+    <Content Include="CovidDataPrep\data\list-of-provinces.csv" />
     <Content Include="requirements.txt" />
     <Content Include="CovidDashboard\static\content\bootstrap.css" />
     <Content Include="CovidDashboard\static\content\bootstrap.min.css" />
@@ -82,8 +214,6 @@
     <Content Include="CovidDashboard\static\scripts\respond.js" />
     <Content Include="CovidDashboard\static\scripts\respond.min.js" />
     <Content Include="CovidDashboard\static\scripts\_references.js" />
-    <Content Include="CovidDashboard\templates\about.html" />
-    <Content Include="CovidDashboard\templates\contact.html" />
     <Content Include="CovidDashboard\templates\index.html" />
     <Content Include="CovidDashboard\templates\layout.html" />
   </ItemGroup>

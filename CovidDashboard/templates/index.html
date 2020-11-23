@@ -2,29 +2,77 @@
 
 {% block content %}
 
+
 <div class="jumbotron">
-    <h1>Flask</h1>
+    <h1>Covid-19 Italy Dashboard</h1>
+    {#
     <p class="lead">Flask is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    #}
 </div>
 
-<!--<div class="row">
-    <div class="col-md-4">
-        <div class="chart" id="mygraph">
-
-        </div>
+<div class="my-3">
+    <label for="cars">Choose a region:</label>
+    <select class="custom-select" id="selector_region">
+        {% for key,region in regions_list.iterrows() %}
+        {% if key==selected_region_index %}
+        <option value="{{ region.codice_regione }}" selected>
+        {% else %}
+        <option value="{{ region.codice_regione }}">
+        {% endif %}
+        {{ region.denominazione_regione }}
+        </option>
+        {% endfor %}
+    </select>
+</div>
+<div class="my-3">
+    <label for="cars">Choose a province:</label>
+    <select class="custom-select" id="selector_province">
+        {% for key,province in provinces_list.iterrows() %}
+        {% if key==selected_province_index %}
+        <option value="{{ province.codice_provincia }}" selected>
+        {% else %}
+        <option value="{{ province.codice_provincia }}">
+        {% endif %}
+        {{ province.denominazione_provincia }} ({{ province.sigla_provincia }})
+        </option>
+        {% endfor %}
+    </select>
+</div>
+<div class="d-flex justify-content-center">
+    <table class="table table-bordered my-3 text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="row"><h2>Total positive cases</h2></th>
+                <th scope="row"><h2>New positive cases</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="color:red">
+                    <div class="spinner-grow slow text-dark" role="status" id="province_latest_total_loader">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <h3 id="province_latest_total_val"></h3>
+                </td>
+                <td style="color:magenta">
+                    <div class="spinner-grow slow text-dark" role="status" id="province_latest_increm_loader">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <h3 id="province_latest_increm_val"></h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="spinner-grow text-dark" role="status" id="province_chart_loader">
+        <span class="sr-only">Loading...</span>
     </div>
-</div>-->
-<label for="cars">Choose a province:</label>
-<select class="custom-select" id="selector_province">
-    <option value="TO" selected>Torino (TO)</option>
-    <option value="VC">Vercelli (VC)</option>
-    <option value="CN">Cuneo (CN)</option>
-</select>
-<div class="chart" id="mygraph">
-
 </div>
+<div class="row chart" id="province_chart"></div>
 
+{#
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
@@ -46,7 +94,7 @@
         <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
     </div>
 </div>
-
+#}
 {% endblock %}
 
 {% block scripts %}
